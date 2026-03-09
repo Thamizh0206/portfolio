@@ -7,7 +7,7 @@ export function Education() {
   const { ref: certRef, isRevealed: certRevealed } = useReveal({ threshold: 0.1 });
 
   return (
-    <section id="education" className="relative py-32 sm:py-56 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
+    <section id="education" className="relative py-20 sm:py-24 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       {/* Immersive Atmospheric Graphics */}
       <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-indigo-500/5 blur-[180px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 blur-[150px] rounded-full pointer-events-none" />
@@ -76,7 +76,7 @@ export function Education() {
                         </div>
                       </div>
 
-                      <h3 className="text-3xl sm:text-5xl font-black text-white leading-none mb-6 group-hover:translate-x-2 transition-transform duration-500">
+                      <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-4 group-hover:translate-x-2 transition-transform duration-500">
                         {edu.degree}
                       </h3>
 
@@ -108,7 +108,7 @@ export function Education() {
         </div>
 
         {/* --- FULL WIDTH: Certifications Subsection --- */}
-        <div ref={certRef} className="mt-40 space-y-16">
+        <div ref={certRef} className="mt-20 space-y-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <h3 className={`text-4xl sm:text-6xl font-black text-white italic tracking-tighter transition-all duration-1000 ${certRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Verified Expertise

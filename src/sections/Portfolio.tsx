@@ -21,7 +21,7 @@ export function Portfolio() {
 
       <div className="container-premium relative z-10">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-20 lg:mb-32">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
           <div className="max-w-4xl">
             <div
               className={`transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
@@ -64,7 +64,7 @@ export function Portfolio() {
         </div>
 
         {/* Projects Layout - One by One (Premium Flow) */}
-        <div className="space-y-24 lg:space-y-40">
+        <div className="space-y-16 lg:space-y-24">
           {projects.map((project: any, i: number) => (
             <ProjectItem key={project.title} project={project} index={i} />
           ))}

@@ -5,7 +5,7 @@ export function About() {
   const { ref: sectionRef, isRevealed } = useReveal({ threshold: 0.1 });
 
   return (
-    <section id="about" className="section-premium relative overflow-hidden py-20 sm:py-32" style={{ background: 'var(--bg-primary)' }}>
+    <section id="about" className="section-premium relative overflow-hidden py-10 sm:py-16" style={{ background: 'var(--bg-primary)' }}>
       {/* Immersive Background Decor */}
       <div className="absolute top-0 right-0 w-[1000px] h-[1000px] opacity-10 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 60%)', filter: 'blur(150px)' }}
@@ -15,18 +15,18 @@ export function About() {
         <div ref={sectionRef} className="max-w-7xl mx-auto">
 
           {/* Top Tier: Vision & Portrait */}
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-20 lg:mb-32">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-10 lg:mb-16">
 
             {/* Header & Subtitle (Left) */}
             <div className={`lg:col-span-7 text-left transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`} style={{ transitionDelay: '0.4s' }}>
-              <div className={`flex items-center justify-start gap-4 mb-8 transition-all duration-700 ${isRevealed ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`flex items-center justify-start gap-4 mb-4 transition-all duration-700 ${isRevealed ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="w-12 h-px bg-indigo-500" />
                 <span className="text-sm font-bold uppercase tracking-[0.3em]" style={{ color: 'var(--text-muted)' }}>
                   {aboutConfig.label}
                 </span>
               </div>
 
-              <h2 className={`text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-12 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+              <h2 className={`text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-8 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
                 I ARCHITECT <br />
                 <span className="gradient-text italic">NEXT-GEN INTELLIGENCE</span>
               </h2>

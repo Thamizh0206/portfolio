@@ -307,7 +307,7 @@ export const educationConfig: EducationConfig = {
       degree: "B.E. Computer Science Engineering (Artificial Intelligence and Machine Learning)",
       institution: "KPR Institute of Engineering and Technology",
       period: "2023 - 2027",
-      details: "CGPA: 7.4",
+      details: "CGPA: 7.5",
     },
     {
       degree: "SSLC & HSC (SSLC: 89.9%, HSC: 89.9%)",

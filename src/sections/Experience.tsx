@@ -6,7 +6,7 @@ export function Experience() {
   const { ref, isRevealed } = useReveal({ threshold: 0.1 });
 
   return (
-    <section id="experience" className="section-premium relative" style={{ background: 'var(--bg-secondary)' }}>
+    <section id="experience" className="relative py-20 sm:py-24 overflow-hidden" style={{ background: 'var(--bg-secondary)' }}>
       {/* Background */}
       <div
         className="absolute top-1/2 right-0 w-[400px] h-[400px] -translate-y-1/2 opacity-15"
@@ -18,7 +18,7 @@ export function Experience() {
 
       <div className="container-premium relative z-10">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <div
             className={`transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}

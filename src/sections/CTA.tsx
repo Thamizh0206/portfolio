@@ -75,7 +75,7 @@ export function CTA() {
               <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-tertiary)' }}>Available for New Projects</span>
             </div>
 
-            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight lg:leading-[1.1] transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               LET'S START A <br />
               <span className="gradient-text italic">CONVERSATION</span>
             </h2>

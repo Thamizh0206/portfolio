@@ -22,7 +22,7 @@ export function Education() {
                 <span className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50">Curriculum Foundation</span>
               </div>
-              <h2 className="text-5xl sm:text-6xl font-black tracking-tighter leading-[0.9] text-white mb-8">
+              <h2 className="text-5xl sm:text-6xl font-black tracking-tighter leading-tight lg:leading-[0.9] text-white mb-8">
                 Intellectual <br />
                 <span className="gradient-text italic">Continuum</span>
               </h2>

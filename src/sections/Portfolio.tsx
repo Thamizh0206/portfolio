@@ -22,7 +22,7 @@ export function Portfolio() {
       <div className="container-premium relative z-10">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-20 lg:mb-32">
-          <div className="max-w-xl">
+          <div className="max-w-4xl">
             <div
               className={`transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
@@ -34,7 +34,7 @@ export function Portfolio() {
             </div>
 
             <h2
-              className={`text-section font-bold mt-4 mb-4 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              className={`text-section font-bold mt-4 mb-8 whitespace-normal lg:whitespace-nowrap transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
               style={{ transitionDelay: '0.1s', color: 'var(--text-primary)' }}
             >

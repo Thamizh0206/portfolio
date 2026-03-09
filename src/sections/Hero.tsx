@@ -1,18 +1,27 @@
 import { useEffect, useState, useRef } from 'react';
 import { ScrambleText } from '@/components/ScrambleText';
 import { MagneticButton } from '@/components/MagneticButton';
-import { ArrowDownRight, Download, Eye } from 'lucide-react';
+import { ArrowDownRight, Download, Eye, X } from 'lucide-react';
 import { heroConfig } from '@/config';
 
 export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const [showResume, setShowResume] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (showResume) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [showResume]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -148,20 +157,17 @@ export function Hero() {
             </MagneticButton>
 
             <div className="flex bg-white/5 border border-white/10 rounded-full p-2 backdrop-blur-md">
-              <a
-                href={heroConfig.resume.view}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setShowResume(true)}
                 className="flex items-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all hover:bg-white/10"
                 style={{ color: 'var(--text-primary)' }}
               >
                 <Eye className="w-4 h-4 opacity-70" />
                 View CV
-              </a>
+              </button>
               <div className="w-px h-8 bg-white/10 self-center mx-1" />
               <a
                 href={heroConfig.resume.download}
-                download
                 className="flex items-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all hover:bg-white/10 text-indigo-400"
               >
                 <Download className="w-4 h-4" />
@@ -187,6 +193,51 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Resume Modal */}
+      {showResume && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-300">
+          <div
+            className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+            onClick={() => setShowResume(false)}
+          />
+          <div className="relative w-full max-w-5xl h-full max-h-[90vh] bg-[#0a0a0f] border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-white/5">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+                  <Eye className="w-5 h-5 text-indigo-400" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-white leading-tight">Professional Resume</h3>
+                  <p className="text-[10px] uppercase font-black tracking-widest text-muted">Previewing Internal Document</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowResume(false)}
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors border border-white/10"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+            </div>
+            <div className="flex-1 bg-neutral-900/50">
+              <iframe
+                src={heroConfig.resume.view}
+                className="w-full h-full border-none"
+                title="Professional Resume"
+              />
+            </div>
+            <div className="p-4 border-t border-white/10 bg-white/5 flex justify-end">
+              <a
+                href={heroConfig.resume.download}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-500 text-white text-sm font-bold transition-all hover:bg-indigo-600 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
+              >
+                <Download className="w-4 h-4" />
+                Download Direct
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Scroll Indicator */}
       <div

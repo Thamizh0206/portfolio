@@ -63,8 +63,8 @@ export const heroConfig: HeroConfig = {
   backgroundImage: "/images/hero-bg.jpg",
   profileImage: "/images/profile.jpg",
   resume: {
-    view: "https://drive.google.com/file/d/1ZJcbn4TMQmvuoR143g-6y8yUm9fgelRQ/preview",
-    download: "https://drive.google.com/uc?export=download&id=1ZJcbn4TMQmvuoR143g-6y8yUm9fgelRQ",
+    view: "https://drive.google.com/file/d/1G4jSxE07EJOsZMTo8J8Uz5CosGt7lUCo/preview",
+    download: "https://drive.google.com/uc?export=download&id=1G4jSxE07EJOsZMTo8J8Uz5CosGt7lUCo",
   },
 };
 
@@ -420,7 +420,7 @@ export const footerConfig: FooterConfig = {
       links: [
         { label: "Education", href: "#education" },
         { label: "Contact", href: "#contact" },
-        { label: "My Resume", href: "https://drive.google.com/file/d/1ZJcbn4TMQmvuoR143g-6y8yUm9fgelRQ/preview" },
+        { label: "My Resume", href: "https://drive.google.com/file/d/1G4jSxE07EJOsZMTo8J8Uz5CosGt7lUCo/preview" },
       ],
     },
     {

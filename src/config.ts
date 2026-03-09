@@ -62,8 +62,8 @@ export const heroConfig: HeroConfig = {
   backgroundImage: "/images/hero-bg.jpg",
   profileImage: "/images/profile.jpg",
   resume: {
-    view: "https://drive.google.com/drive/folders/1vOdNUo1CleQdOFSr-pD_zBwIzU1LVR3q?usp=drive_link",
-    download: "https://drive.google.com/drive/folders/1vOdNUo1CleQdOFSr-pD_zBwIzU1LVR3q?usp=drive_link",
+    view: "https://drive.google.com/file/d/1YtPn0QnfFaDvBQsCi-6j1idgSQA4l1lo/view?usp=drive_link",
+    download: "https://drive.google.com/file/d/1YtPn0QnfFaDvBQsCi-6j1idgSQA4l1lo/view?usp=drive_link",
   },
 };
 

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
-import { navigationConfig } from '@/config';
 import { Menu, X } from 'lucide-react';
+import { navigationConfig } from '@/config';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,32 +27,25 @@ export function Navigation() {
   return (
     <>
       <nav
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled 
-            ? 'bg-[var(--bg-primary)]/90 backdrop-blur-lg border-b border-[var(--border-color)]' 
-            : 'bg-transparent'
-        )}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-[var(--bg-primary)]/80 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
+          }`}
       >
-        <div className="container-main">
+        <div className="container-premium">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a 
-              href="#" 
-              className="text-lg font-semibold"
-              style={{ color: 'var(--text-primary)' }}
-            >
-              {navigationConfig.logo}
+            <a href="#" className="text-lg font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
+              <span className="gradient-text">{navigationConfig.logo.charAt(0)}</span>
+              {navigationConfig.logo.substring(1)}
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-1">
               {navigationConfig.links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-medium transition-colors hover:text-[var(--accent-blue)]"
+                  className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5"
                   style={{ color: 'var(--text-secondary)' }}
                 >
                   {link.label}
@@ -64,23 +56,22 @@ export function Navigation() {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <a
-                href={navigationConfig.contactHref}
-                onClick={(e) => handleNavClick(e, navigationConfig.contactHref)}
-                className="btn btn-primary text-sm"
+                href="#contact"
+                onClick={(e) => handleNavClick(e, '#contact')}
+                className="btn-premium text-sm"
               >
-                {navigationConfig.contactLabel}
+                <span>Contact Me</span>
               </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg"
-              style={{ 
-                background: 'var(--bg-tertiary)',
-                border: '1px solid var(--border-color)'
+              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl transition-colors"
+              style={{
+                background: isMenuOpen ? 'var(--bg-tertiary)' : 'transparent',
+                border: '1px solid var(--border)',
               }}
-              aria-label="Toggle menu"
             >
               {isMenuOpen ? (
                 <X className="w-5 h-5" style={{ color: 'var(--text-primary)' }} />
@@ -94,42 +85,31 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={cn(
-          'fixed inset-0 z-40 lg:hidden transition-all duration-300',
-          isMenuOpen 
-            ? 'opacity-100 visible' 
-            : 'opacity-0 invisible pointer-events-none'
-        )}
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+          }`}
         style={{ background: 'var(--bg-primary)' }}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-6">
+        <div className="flex flex-col items-center justify-center h-full gap-2">
           {navigationConfig.links.map((link, i) => (
             <a
               key={link.label}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className={cn(
-                'text-2xl font-semibold transition-all duration-300',
-                isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              )}
-              style={{ 
-                color: 'var(--text-primary)',
-                transitionDelay: `${i * 50}ms`
-              }}
+              className={`text-3xl font-bold transition-all duration-500 px-6 py-3 rounded-xl ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+              style={{ color: 'var(--text-primary)', transitionDelay: `${i * 50}ms` }}
             >
               {link.label}
             </a>
           ))}
           <a
-            href={navigationConfig.contactHref}
-            onClick={(e) => handleNavClick(e, navigationConfig.contactHref)}
-            className={cn(
-              'btn btn-primary mt-4 transition-all duration-300',
-              isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            )}
+            href="#contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
+            className={`btn-premium mt-6 transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             style={{ transitionDelay: '250ms' }}
           >
-            {navigationConfig.contactLabel}
+            <span>Contact Me</span>
           </a>
         </div>
       </div>

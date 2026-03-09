@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export function usePageLoad(delay: number = 100) {
-  const [isLoaded, setIsLoaded] = useState(false);
+export function usePageLoad(minDuration = 1000) {
   const [showOverlay, setShowOverlay] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Wait for fonts and images to load
+    const startTime = Date.now();
+
     const handleLoad = () => {
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, minDuration - elapsed);
+
       setTimeout(() => {
-        setShowOverlay(false);
-        setTimeout(() => {
-          setIsLoaded(true);
-        }, 500);
-      }, delay);
+        setIsLoaded(true);
+        setTimeout(() => setShowOverlay(false), 500);
+      }, remaining);
     };
 
     if (document.readyState === 'complete') {
@@ -21,7 +23,7 @@ export function usePageLoad(delay: number = 100) {
       window.addEventListener('load', handleLoad);
       return () => window.removeEventListener('load', handleLoad);
     }
-  }, [delay]);
+  }, [minDuration]);
 
-  return { isLoaded, showOverlay };
+  return { showOverlay, isLoaded };
 }

@@ -9,7 +9,7 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   language: "en",
-  title: "Thamizhvendhan R | ML Engineer & Generative AI Developer",
+  title: "Thamizhvendhan R | Machine Learning Engineer",
   description: "Portfolio of Thamizhvendhan R - Machine Learning Engineer specializing in Generative AI, RAG systems, LLMs, and scalable ML pipelines.",
 };
 
@@ -36,7 +36,7 @@ export const navigationConfig: NavigationConfig = {
     { label: "Education", href: "#education" },
   ],
   contactLabel: "Contact Me",
-  contactHref: "#contact",
+  contactHref: "mailto:thamizhvendhan0206@gmail.com",
 };
 
 // Hero section configuration
@@ -44,6 +44,11 @@ export interface HeroConfig {
   name: string;
   roles: string[];
   backgroundImage: string;
+  profileImage: string;
+  resume: {
+    view: string;
+    download: string;
+  };
 }
 
 export const heroConfig: HeroConfig = {
@@ -51,10 +56,15 @@ export const heroConfig: HeroConfig = {
   roles: [
     "Machine Learning Engineer",
     "Generative AI Developer",
-    "RAG Systems Expert",
-    "LLM Specialist",
+    "RAG Systems Specialist",
+    "NLP & LLM Expert",
   ],
   backgroundImage: "/images/hero-bg.jpg",
+  profileImage: "/images/profile.jpg",
+  resume: {
+    view: "https://drive.google.com/drive/folders/1vOdNUo1CleQdOFSr-pD_zBwIzU1LVR3q?usp=drive_link",
+    download: "https://drive.google.com/drive/folders/1vOdNUo1CleQdOFSr-pD_zBwIzU1LVR3q?usp=drive_link",
+  },
 };
 
 // About section configuration
@@ -79,13 +89,13 @@ export interface AboutConfig {
 
 export const aboutConfig: AboutConfig = {
   label: "About Me",
-  description: "I am an ML engineer experienced in building end-to-end AI/ML systems with expertise in NLP, recommendation engines, and generative AI. I excel in Python, TensorFlow, PyTorch, and FastAPI, with deep knowledge of scalable ML pipelines and RAG architectures. I am passionate about creating production-ready AI solutions that solve real-world problems.",
+  description: "I am a Machine Learning Engineer with hands-on experience in building and deploying end-to-end ML systems across NLP, Generative AI, and adaptive learning architectures. I am proficient in Python, TensorFlow, PyTorch, and FastAPI, with strong expertise in scalable ML pipelines, hybrid RAG systems, and production-ready AI solutions that prioritize accuracy and personalized user experiences.",
   experienceValue: "3+",
   experienceLabel: "Years of\nExperience",
   stats: [
-    { value: "15+", label: "ML Projects\nCompleted" },
-    { value: "10+", label: "AI Models\nDeployed" },
-    { value: "5+", label: "RAG Systems\nBuilt" },
+    { value: "16+", label: "ML Projects\nCompleted" },
+    { value: "12+", label: "AI Models\nDeployed" },
+    { value: "6+", label: "RAG Systems\nBuilt" },
   ],
   images: [
     { src: "/images/about-1.jpg", alt: "ML Engineer Workspace" },
@@ -95,47 +105,59 @@ export const aboutConfig: AboutConfig = {
   ],
 };
 
-// Services section configuration - Repurposed as Tech Skills
-export interface ServiceItem {
+// Skills section configuration - Tech Skills
+export interface SkillCategory {
   iconName: string;
   title: string;
+  skills: string[];
   description: string;
-  image: string;
+  color: string;
 }
 
 export interface ServicesConfig {
   label: string;
   heading: string;
-  services: ServiceItem[];
+  categories: SkillCategory[];
 }
 
 export const servicesConfig: ServicesConfig = {
   label: "Technical Skills",
-  heading: "Expertise Across the ML Stack",
-  services: [
+  heading: "Expertise Across the AI/ML Landscape",
+  categories: [
     {
-      iconName: "Code",
-      title: "Programming Languages",
-      description: "Python, Java, C, SQL - Building robust and scalable code foundations for ML systems with clean architecture and best practices.",
-      image: "/images/skill-1.jpg",
+      iconName: "Code2",
+      title: "Languages",
+      skills: ["Python", "Java", "C", "SQL", "C++"],
+      description: "Proficient in core programming languages for system design and ML implementation.",
+      color: "#6366f1",
     },
     {
       iconName: "Brain",
-      title: "ML/DL Frameworks",
-      description: "TensorFlow, PyTorch, scikit-learn, Pandas, NumPy - Developing and training state-of-the-art machine learning models.",
-      image: "/images/skill-2.jpg",
+      title: "Libraries & Math",
+      skills: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "FAISS"],
+      description: "Expertise in data manipulation, mathematical computing, and vector search.",
+      color: "#c084fc",
     },
     {
       iconName: "Bot",
-      title: "AI/LLM Technologies",
-      description: "RAG, FAISS, LangChain, OpenAI APIs, Prompt Engineering - Building intelligent systems with large language models.",
-      image: "/images/skill-3.jpg",
+      title: "AI/LLM Stack",
+      skills: ["RAG", "Agentic AI", "Adaptive Learning", "Semantic Search", "LangChain"],
+      description: "Building advanced intelligent systems with large language models and retrieval logic.",
+      color: "#22d3ee",
+    },
+    {
+      iconName: "Layers",
+      title: "ML & Deep Learning",
+      skills: ["Regression", "Classification", "Clustering", "CNNs", "RNNs", "Transformers"],
+      description: "Deep understanding of supervised, unsupervised, and neural network architectures.",
+      color: "#f472b6",
     },
     {
       iconName: "Cloud",
-      title: "Cloud & DevOps",
-      description: "FastAPI, Docker, AWS/GCP/Azure - Deploying and scaling ML pipelines in production cloud environments.",
-      image: "/images/skill-4.jpg",
+      title: "Tools & DevOps",
+      skills: ["FastAPI", "Docker", "AWS", "GCP", "Azure"],
+      description: "Deploying and scaling production-ready ML systems across cloud platforms.",
+      color: "#4ade80",
     },
   ],
 };
@@ -146,6 +168,9 @@ export interface ProjectItem {
   category: string;
   year: string;
   image: string;
+  description: string;
+  tech: string[];
+  link: string;
   featured?: boolean;
 }
 
@@ -166,99 +191,159 @@ export interface PortfolioConfig {
 }
 
 export const portfolioConfig: PortfolioConfig = {
-  label: "Featured Projects",
-  heading: "AI/ML Projects That Deliver Impact",
-  description: "Showcasing production-ready AI systems built with cutting-edge technologies. Each project demonstrates end-to-end ML pipeline development from data processing to deployment.",
+  label: "Featured Highlights",
+  heading: "Real-World AI Implementations",
+  description: "Each project represents a production-ready system tackling specific challenges in NLP, documentation, and document intelligence.",
   projects: [
-    {
-      title: "AI Resume Analyzer & Job Match Engine",
-      category: "NLP | FastAPI | Gemini",
-      year: "2024",
-      image: "/images/project-1.jpg",
-      featured: true,
-    },
     {
       title: "AI-Powered Documentation Generator",
       category: "LLM | OpenAI | LangChain",
       year: "2024",
       image: "/images/project-2.jpg",
+      description: "Built an AI-driven repository documentation generator using OpenAI GPT and LangChain to extract code functions and produce structured Markdown/JSON docs.",
+      tech: ["Python", "OpenAI", "LangChain"],
+      link: "https://git2doc.vercel.app/",
+      featured: true,
     },
     {
-      title: "DocuMind AI - RAG-Based PDF QA",
+      title: "AI Resume Analyzer & Job Match Engine",
+      category: "NLP | FastAPI | Gemini",
+      year: "2024",
+      image: "/images/project-1.jpg",
+      description: "Built a scalable analyzer using hybrid matching (Skill extraction + Gemini embedding similarity) to compute candidate–job fit scores with automated screening.",
+      tech: ["FastAPI", "NLP", "Gemini", "Python"],
+      link: "https://thamizh0206-resume-analyzer.hf.space/",
+    },
+    {
+      title: "EduGen AI (Adaptive Learning Engine)",
+      category: "RAG | Adaptive AI | FastAPI",
+      year: "2024",
+      image: "/images/project-edu.jpg.png",
+      description: "An AI-powered adaptive learning engine that transforms static study materials into structured summaries, intelligent quizzes, and personalized learning insights using RAG, semantic embeddings, and performance tracking.",
+      tech: ["FastAPI", "RAG", "FAISS", "SentenceTransformers", "Python"],
+      link: "#",
+    },
+    {
+      title: "DocuMind AI (LLM-Based QA System)",
       category: "RAG | FAISS | React",
       year: "2024",
       image: "/images/project-3.jpg",
-    },
-    {
-      title: "Anomaly Detection System",
-      category: "Cybersecurity | AWS | ML",
-      year: "2023",
-      image: "/images/portfolio-4.jpg",
-    },
-    {
-      title: "Recommendation Engine",
-      category: "Deep Learning | TensorFlow",
-      year: "2023",
-      image: "/images/portfolio-5.jpg",
+      description: "Scalable RAG-based multi-PDF QA system using FAISS and GPT LLMs, achieving 40% improvement in answer relevance with semantic retrieval.",
+      tech: ["RAG", "FAISS", "React", "FastAPI"],
+      link: "https://thamizh0206-documind-ai.hf.space/",
     },
   ],
   cta: {
-    label: "Let's Collaborate",
-    heading: "Have a project in mind?",
-    linkText: "Get in Touch",
-    linkHref: "#contact",
+    label: "Innovation",
+    heading: "Pushing the boundaries of AI",
+    linkText: "View My GitHub",
+    linkHref: "https://github.com/Thamizh0206",
   },
   viewAllLabel: "View All Projects",
 };
 
-// Testimonials section configuration - Repurposed as Experience & Education
-export interface TestimonialItem {
-  quote: string;
-  author: string;
-  role: string;
+// Experience section configuration
+export interface ExperienceItem {
+  title: string;
   company: string;
-  image: string;
-  rating: number;
+  location: string;
+  period: string;
+  description: string;
+  achievements: string[];
 }
 
-export interface TestimonialsConfig {
+export interface ExperienceConfig {
   label: string;
   heading: string;
-  testimonials: TestimonialItem[];
+  items: ExperienceItem[];
 }
 
-export const testimonialsConfig: TestimonialsConfig = {
-  label: "Experience & Education",
+export const experienceConfig: ExperienceConfig = {
+  label: "Work Experience",
   heading: "Professional Journey",
-  testimonials: [
+  items: [
     {
-      quote: "Used ML to detect security breaches on AWS/GCP/Azure cloud platforms. Developed anomaly detection and predictive analytics pipelines. Achieved real-time detection of network threats in production environments, reducing response time by 60%.",
-      author: "Machine Learning & Cybersecurity Engineer",
-      role: "Full-time Position",
+      title: "Machine Learning and Cybersecurity Engineer",
       company: "Nitroware Tech Pvt Ltd",
-      image: "/images/about-3.jpg",
-      rating: 5,
-    },
-    {
-      quote: "B.E. in Artificial Intelligence & Machine Learning with comprehensive coursework in deep learning, neural networks, and data science. Graduated with strong foundation in both theoretical and practical aspects of AI.",
-      author: "B.E. AI & ML",
-      role: "Undergraduate Degree",
-      company: "KPR Institute of Engineering and Technology",
-      image: "/images/about-2.jpg",
-      rating: 5,
-    },
-    {
-      quote: "Completed certifications in Machine Learning Specialization (Coursera), IoT (NPTEL), Large Language Models (NPTEL), and Prompt Engineering (Simplilearn). Continuously learning and staying updated with latest AI advancements.",
-      author: "Professional Certifications",
-      role: "Continuous Learning",
-      company: "Coursera, NPTEL, Simplilearn",
-      image: "/images/about-4.jpg",
-      rating: 5,
+      location: "India",
+      period: "Jan 2025 - Feb 2025",
+      description: "Leading ML initiatives for cybersecurity applications, developing anomaly detection systems and predictive analytics pipelines for cloud infrastructure.",
+      achievements: [
+        "Developed and deployed ML-based cyber breach detection systems using Python, Scikit-learn, TensorFlow, and PyTorch.",
+        "Applied anomaly detection and predictive analytics to identify security threats across AWS, GCP, and Azure environments.",
+        "Built pipelines processing 10M+ events daily with real-time ML detection.",
+      ],
     },
   ],
 };
 
-// CTA section configuration - Contact Section
+// Education section configuration
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+  details?: string;
+}
+
+export interface CertificationItem {
+  name: string;
+  provider: string;
+  link: string;
+}
+
+export interface EducationConfig {
+  label: string;
+  heading: string;
+  educationItems: EducationItem[];
+  certifications: CertificationItem[];
+}
+
+export const educationConfig: EducationConfig = {
+  label: "Education & Certifications",
+  heading: "Academic Background",
+  educationItems: [
+    {
+      degree: "B.E. Computer Science Engineering (Artificial Intelligence and Machine Learning)",
+      institution: "KPR Institute of Engineering and Technology",
+      period: "2023 - 2027",
+      details: "CGPA: 7.4",
+    },
+    {
+      degree: "SSLC & HSC (SSLC: 89.9%, HSC: 89.9%)",
+      institution: "Arunmozhy Matric Higher Secondary School",
+      period: "Graduated with Honors",
+    },
+  ],
+  certifications: [
+    {
+      name: "Supervised Machine Learning: Regression and Classification",
+      provider: "Coursera",
+      link: "https://drive.google.com/file/d/1gHvVC0GhPigLteabUqC0oH6AR99nsGVD/view?usp=drive_link",
+    },
+    {
+      name: "Introduction to Industry 4.0 and IIoT",
+      provider: "NPTEL",
+      link: "https://drive.google.com/file/d/1R369CDr01mnHlod7kvdUSl4w1-nddW6K/view?usp=drive_link",
+    },
+    {
+      name: "Introduction to Large Language Models (LLMs)",
+      provider: "NPTEL",
+      link: "https://drive.google.com/file/d/11zhuG8gd9fOJe4N2o9iA1HHXcxHAd9rw/view?usp=drive_link",
+    },
+    {
+      name: "Introduction to Prompt Engineering",
+      provider: "Simplilearn",
+      link: "https://drive.google.com/file/d/1u8Jl2T3cO-5sB1tqP10u2SHr_08YIefP/view?usp=drive_link",
+    },
+    {
+      name: "C, C++, Java",
+      provider: "IIT Bombay Spoken Tutorial",
+      link: "https://drive.google.com/drive/folders/1U0--y-QGYPvl4Es3UqWwiLa-pO9u2jPG?usp=drive_link",
+    },
+  ],
+};
+
+// CTA section configuration
 export interface CTAConfig {
   tags: string[];
   heading: string;
@@ -266,16 +351,28 @@ export interface CTAConfig {
   buttonText: string;
   buttonHref: string;
   email: string;
+  phone: string;
+  location: string;
+  status: {
+    label: string;
+    description: string;
+  };
   backgroundImage: string;
 }
 
 export const ctaConfig: CTAConfig = {
-  tags: ["Machine Learning Engineer", "Generative AI Developer", "RAG Systems Expert"],
-  heading: "Let's Build Something Amazing Together",
-  description: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you need a production-ready AI system or want to explore the possibilities of generative AI, let's connect.",
-  buttonText: "Download Resume",
-  buttonHref: "#",
+  tags: ["ML Engineer", "GenAI Enthusiast", "Problem Solver"],
+  heading: "Let's Start a Conversation",
+  description: "I'm always open to discussing advanced AI architectures, RAG implementations, or scalable ML systems. Let's build something intelligent together.",
+  buttonText: "Send Message",
+  buttonHref: "mailto:thamizhvendhan0206@gmail.com",
   email: "thamizhvendhan0206@gmail.com",
+  phone: "+91 6369446216",
+  location: "Coimbatore, India",
+  status: {
+    label: "Open to collaborations",
+    description: "Interested in collaborations, product development and research partnerships"
+  },
   backgroundImage: "/images/cta-bg.jpg",
 };
 
@@ -306,10 +403,10 @@ export interface FooterConfig {
 
 export const footerConfig: FooterConfig = {
   logo: "Thamizhvendhan R",
-  description: "Machine Learning Engineer specializing in Generative AI, RAG systems, and scalable ML pipelines. Building production-ready AI solutions that drive real-world impact.",
+  description: "Machine Learning Engineer specializing in Generative AI, RAG systems, and production-ready ML solutions that solve real-world problems.",
   columns: [
     {
-      title: "Quick Links",
+      title: "Explore",
       links: [
         { label: "About", href: "#about" },
         { label: "Skills", href: "#skills" },
@@ -318,32 +415,31 @@ export const footerConfig: FooterConfig = {
       ],
     },
     {
-      title: "Technologies",
+      title: "Navigation",
       links: [
-        { label: "Python & TensorFlow", href: "#" },
-        { label: "LangChain & LLMs", href: "#" },
-        { label: "FastAPI & Docker", href: "#" },
-        { label: "AWS/GCP/Azure", href: "#" },
+        { label: "Education", href: "#education" },
+        { label: "Contact", href: "#contact" },
+        { label: "My Resume", href: "https://drive.google.com/file/d/1YtPn0QnfFaDvBQsCi-6j1idgSQA4l1lo/view?usp=drive_link" },
       ],
     },
     {
-      title: "Contact",
+      title: "Connect",
       links: [
-        { label: "LinkedIn", href: "https://linkedin.com" },
-        { label: "GitHub", href: "https://github.com/Thamizh0206/portfolio" },
-        { label: "Email Me", href: "mailto:thamizhvendhan0206@gmail.com" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/thamizhvendhan-r-a4a550375/" },
+        { label: "GitHub", href: "https://github.com/Thamizh0206" },
+        { label: "Email", href: "mailto:thamizhvendhan0206@gmail.com" },
       ],
     },
   ],
   socialLinks: [
-    { iconName: "Github", href: "https://github.com/Thamizh0206/portfolio", label: "GitHub" },
-    { iconName: "Linkedin", href: "https://linkedin.com", label: "LinkedIn" },
+    { iconName: "Github", href: "https://github.com/Thamizh0206", label: "GitHub" },
+    { iconName: "Linkedin", href: "https://www.linkedin.com/in/thamizhvendhan-r-a4a550375/", label: "LinkedIn" },
     { iconName: "Mail", href: "mailto:thamizhvendhan0206@gmail.com", label: "Email" },
   ],
-  newsletterHeading: "Stay Updated",
-  newsletterDescription: "Subscribe to get updates on my latest projects and AI insights.",
+  newsletterHeading: "Stay in the loop",
+  newsletterDescription: "Subscribe to receive insights on latest AI trends and my recent projects.",
   newsletterButtonText: "Subscribe",
-  newsletterPlaceholder: "Enter your email",
+  newsletterPlaceholder: "Email address",
   copyright: "© 2024 Thamizhvendhan R. All rights reserved.",
-  credit: "Built with React, Tailwind CSS & shadcn/ui",
+  credit: "Built with React, Tailwind & shadcn",
 };

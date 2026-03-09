@@ -1,100 +1,60 @@
-# Exvia - Portfolio Website Template
+# Thamizhvendhan R - AI/ML Portfolio
 
-A modern, animated single-page portfolio template with a cinematic hero section featuring mouse-tracking image reveal, scroll-triggered animations, parallax effects, and a testimonial slider. Built with React, TypeScript, Tailwind CSS, and Vite.
+A premium, highly interactive, and architecturally designed portfolio for a Machine Learning Engineer specializing in Generative AI, RAG Systems, and Neural Architectures. Built with high-end glassmorphism elements, smooth scroll-triggered animations, and a production-grade tech stack.
 
-## Features
+## 🚀 Vision & Identity
 
-- **Cinematic Hero Section** - Full-screen hero with blurred background, sharp mouse-tracking image window with crosshair, and role labels on sides
-- **Scroll Animations** - Intersection Observer based reveal animations with staggered timing
-- **Mouse Parallax** - Service cards feature mouse-following hover images with rotation
-- **Testimonial Slider** - Auto-advancing carousel with slide transitions, star ratings, and dot/arrow navigation
-- **Page Load Overlay** - Smooth loading screen with animated progress indicator
-- **Responsive Navigation** - Fixed navbar with transparent-to-white scroll transition, animated hamburger menu for mobile
-- **Animated Buttons** - Text slide animation on hover with arrow icon support
-- **Bento Grid Portfolio** - Mixed layout grid with featured projects, CTA card, and decorative circles
-- **Newsletter Footer** - Full footer with link columns, social icons, and email subscription form
-- **Fully Configurable** - All content driven by a single `config.ts` file
+This portfolio is not just a showcase of projects; it's a statement of technical depth and architectural precision. It features:
+- **Cinematic Hero**: A monumental center-stage identity with mouse-tracking radial glows.
+- **Academic Evolution**: A structural gallery detailing educational milestones and certified expertise.
+- **Glossy Tech Plaques**: Interactive certification cards with real-time validation pulses and industrial-grade indexing.
+- **Bento Grid Showcase**: A modern layout for presenting high-impact AI/ML projects.
+- **Professional Journey**: A systematic timeline of industry experience in ML and Cybersecurity.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **React 19** with TypeScript
-- **Vite 7** for development and building
-- **Tailwind CSS 3** with custom design tokens (Exvia Design System)
-- **Lucide React** for icons (dynamically resolved by name)
-- **Geist Font** (Regular, Medium, Mono) loaded via CDN
-- **shadcn/ui** component primitives available
+- **Core**: React 19, TypeScript
+- **Styling**: Tailwind CSS 3 with custom design tokens
+- **Animations**: Custom Framer-like hooks (Intersection Observer)
+- **Icons**: Lucide React
+- **Build Tool**: Vite 7
+- **Architecture**: Single-page application with modular component structure
 
-## Quick Start
+## 📂 Project Structure
+
+- `src/config.ts`: The central nervous system of the site. All content and layout data are managed here.
+- `src/sections`: Contains all main architectural blocks (`Hero`, `About`, `Services`, `Portfolio`, `Experience`, `Education`, `CTA`, `Footer`).
+- `src/components`: Reusable UI elements (`Navigation`, `MagneticButton`, `ScrambleText`, `PageOverlay`).
+- `src/hooks`: Custom logic for reveal triggers, scroll animations, and page load management.
+
+## 🏁 Quick Start
+
+To run the development server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Configuration
+To build for production:
 
-All site content is managed through `src/config.ts`. Each section has its own configuration object with TypeScript interfaces for type safety. When a config object has empty values, the corresponding section returns `null` and is not rendered.
-
-### Config Objects
-
-- `siteConfig` - Global site title, description, language
-- `navigationConfig` - Logo text, nav links, contact button
-- `heroConfig` - Name, roles (displayed on left/right sides), background image path
-- `aboutConfig` - Label, description, experience badge, stats array, images array
-- `servicesConfig` - Label, heading, services array (each with iconName, title, description, image)
-- `portfolioConfig` - Label, heading, description, projects array, CTA card, view all label
-- `testimonialsConfig` - Label, heading, testimonials array (each with quote, author, role, company, image, rating)
-- `ctaConfig` - Tags, heading, description, button text/href, email, background image
-- `footerConfig` - Logo, description, link columns, social links, newsletter, copyright, credit
-
-### Icon Names
-
-Service and social icons use Lucide icon names (PascalCase). Examples: `Compass`, `PenTool`, `Layout`, `Code`, `Dribbble`, `Twitter`, `Linkedin`, `Instagram`.
-
-## Required Images
-
-Place images in `public/images/`:
-
-- `hero-bg.jpg` - Hero section background (full-screen, high resolution)
-- `about-1.jpg` to `about-4.jpg` - About section image grid (portrait 4:5 ratio)
-- `service-1.jpg` to `service-4.jpg` - Service hover preview images
-- `portfolio-1.jpg` to `portfolio-5.jpg` - Portfolio project thumbnails
-- `testimonial-1.jpg` to `testimonial-3.jpg` - Testimonial author photos (portrait)
-- `cta-bg.jpg` - CTA section background image
-
-## Design System
-
-- **Colors**: Black (#131313), White (#FFFFFF), Base Black (#1D1D1D), Subtle (#EAEAEA), Border (#EFEFF2), Blue (#0082F3), Focus (#4D65FF)
-- **Typography**: Geist (400, 500) for body, GeistMono (500) for labels and monospace text
-- **Animations**: Custom easing curves (out-quad, out-cubic, out-quart, out-circ, in-out-quad)
-- **Layout**: Full-width sections with container-large (80rem max) inner content
-
-## Project Structure
-
+```bash
+npm run build
 ```
-src/
-  config.ts          # All site content configuration
-  App.tsx            # Main app with page load overlay
-  App.css            # Base Vite styles
-  index.css          # Global styles, fonts, animations, utilities
-  main.tsx           # React entry point
-  components/
-    Navigation.tsx   # Fixed navbar with mobile menu
-    AnimatedButton.tsx  # Hover-animated button component
-    PageOverlay.tsx  # Loading screen overlay
-  sections/
-    Hero.tsx         # Full-screen hero with mouse-tracking image reveal
-    About.tsx        # Two-column about with image grid
-    Services.tsx     # Service cards with hover parallax images
-    Portfolio.tsx    # Bento grid project showcase
-    Testimonials.tsx # Auto-advancing testimonial carousel
-    CTA.tsx          # Call-to-action with background image
-    Footer.tsx       # Multi-column footer with newsletter
-  hooks/
-    useMouseParallax.ts  # Mouse parallax for hero and services
-    usePageLoad.ts       # Page load state management
-    useScrollAnimation.ts # Intersection Observer scroll reveals
-    use-mobile.ts        # Mobile breakpoint detection
-  lib/
-    utils.ts         # cn() utility for class merging
-```
+
+## 📄 Site Configuration
+
+All content is driven by a single point of truth in `src/config.ts`. This allows for lightning-fast updates without touching the JSX/UI code.
+
+Configurable objects:
+- `navigationConfig`: Dynamic links and logo.
+- `heroConfig`: Identity, roles, and resume links.
+- `aboutConfig`: Professional bio and stats.
+- `servicesConfig`: Technical skill categories and skill clouds.
+- `portfolioConfig`: Project details, links, and featured tags.
+- `experienceConfig`: Workplace history and achievements.
+- `educationConfig`: Degree details and certification links.
+- `footerConfig`: Social integration and contact metadata.
+
+---
+Built with pride by Thamizhvendhan R.

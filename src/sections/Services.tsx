@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useReveal } from '@/hooks/useReveal';
-import { Code2, Brain, Bot, Cloud, Layers, ChevronRight } from 'lucide-react';
+import { Code2, Brain, Bot, Cloud, Layers } from 'lucide-react';
 import { servicesConfig } from '@/config';
 
 const iconMap: Record<string, any> = {

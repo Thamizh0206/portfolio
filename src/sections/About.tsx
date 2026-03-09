@@ -26,7 +26,7 @@ export function About() {
                 </span>
               </div>
 
-              <h2 className={`text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-8 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+              <h2 className={`text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] mb-8 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
                 I ARCHITECT <br />
                 <span className="gradient-text italic">NEXT-GEN INTELLIGENCE</span>
               </h2>

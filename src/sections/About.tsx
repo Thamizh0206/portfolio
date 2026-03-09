@@ -5,7 +5,7 @@ export function About() {
   const { ref: sectionRef, isRevealed } = useReveal({ threshold: 0.1 });
 
   return (
-    <section id="about" className="section-premium relative overflow-hidden py-32 sm:py-48" style={{ background: 'var(--bg-primary)' }}>
+    <section id="about" className="section-premium relative overflow-hidden py-20 sm:py-32" style={{ background: 'var(--bg-primary)' }}>
       {/* Immersive Background Decor */}
       <div className="absolute top-0 right-0 w-[1000px] h-[1000px] opacity-10 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 60%)', filter: 'blur(150px)' }}

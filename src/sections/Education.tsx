@@ -116,42 +116,62 @@ export function Education() {
             <div className={`h-1 flex-1 bg-gradient-to-r from-indigo-500/20 via-white/5 to-transparent transition-all duration-1000 delay-300 ${certRevealed ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {educationConfig.certifications.map((cert, i) => (
               <a
                 key={i}
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative p-10 rounded-[2.5rem] bg-[#0A0A0B]/60 border border-white/5 backdrop-blur-3xl hover:bg-white/[0.03] hover:border-indigo-500/20 transition-all duration-700 ${certRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                className={`group relative p-[1px] rounded-[2.5rem] transition-all duration-700 ${certRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className="relative z-10 flex flex-col h-full justify-between gap-12">
-                  <div className="flex items-start justify-between">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-indigo-500/10 transition-colors duration-500">
-                      {cert.provider === 'Coursera' && <Award className="w-8 h-8 text-blue-400/80" />}
-                      {cert.provider === 'NPTEL' && <BookOpen className="w-8 h-8 text-emerald-400/80" />}
-                      {cert.provider === 'Simplilearn' && <Zap className="w-8 h-8 text-orange-400/80" />}
-                      {!['Coursera', 'NPTEL', 'Simplilearn'].includes(cert.provider) && <Database className="w-8 h-8 text-indigo-400/80" />}
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
-                      <ArrowUpRight className="w-5 h-5 text-white group-hover:text-black transition-colors" />
-                    </div>
+                {/* Glow Border Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-transparent to-cyan-500/20 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+
+                {/* Main Card Body */}
+                <div className="relative h-full p-10 rounded-[2.5rem] bg-[#0A0A0C]/90 border border-white/5 backdrop-blur-3xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
+
+                  {/* Glossy Sheen Overlay */}
+                  <div className="absolute -inset-full bg-gradient-to-tr from-transparent via-white/5 to-transparent rotate-45 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+
+                  {/* Architectural Index */}
+                  <div className="absolute top-8 right-10 text-[10px] font-mono text-white/5 group-hover:text-indigo-500/40 transition-colors">
+                    REF-ID / {String(i + 1).padStart(3, '0')}
                   </div>
 
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400/80">{cert.provider}</p>
+                  <div className="relative z-10 flex flex-col h-full justify-between gap-12">
+                    <div className="flex items-start justify-between">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-indigo-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-indigo-500/10 group-hover:border-indigo-500/30 transition-all duration-500">
+                          {cert.provider === 'Coursera' && <Award className="w-8 h-8 text-blue-400" />}
+                          {cert.provider === 'NPTEL' && <BookOpen className="w-8 h-8 text-emerald-400" />}
+                          {cert.provider === 'Simplilearn' && <Zap className="w-8 h-8 text-orange-400" />}
+                          {!['Coursera', 'NPTEL', 'Simplilearn'].includes(cert.provider) && <Database className="w-8 h-8 text-indigo-400" />}
+                        </div>
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white transition-all duration-500">
+                        <ArrowUpRight className="w-5 h-5 text-white/40 group-hover:text-black transition-colors" />
+                      </div>
                     </div>
-                    <h4 className="text-2xl font-bold text-white leading-tight group-hover:gradient-text transition-all duration-500">
-                      {cert.name}
-                    </h4>
-                  </div>
 
-                  <div className="pt-8 border-t border-white/5 flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                    <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">Publicly Verifiable Credentials</span>
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-500">{cert.provider}</span>
+                      </div>
+                      <h4 className="text-2xl font-black text-white leading-tight group-hover:text-indigo-400 transition-colors">
+                        {cert.name}
+                      </h4>
+                    </div>
+
+                    <div className="pt-8 border-t border-white/5 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+                        <span className="text-[9px] font-bold text-white/20 uppercase tracking-[0.2em]">Validated Asset</span>
+                      </div>
+                      <div className="text-[14px] font-black text-white/5 italic select-none">CERT.V1</div>
+                    </div>
                   </div>
                 </div>
               </a>

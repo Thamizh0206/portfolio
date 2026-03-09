@@ -54,7 +54,7 @@ export function CTA() {
   };
 
   return (
-    <section id="contact" className="section-premium relative overflow-hidden py-32 sm:py-48" style={{ background: 'var(--bg-primary)' }}>
+    <section id="contact" className="relative overflow-hidden py-20 sm:py-28" style={{ background: 'var(--bg-primary)' }}>
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-10 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 70%)', filter: 'blur(120px)' }}
@@ -63,22 +63,19 @@ export function CTA() {
         style={{ background: 'radial-gradient(circle, #22d3ee 0%, transparent 70%)', filter: 'blur(100px)' }}
       />
 
-      {/* Decorative Text */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-[0.02] text-[20vw] font-black leading-none uppercase tracking-tighter whitespace-nowrap">
-        REACH OUT
-      </div>
+
 
       <div className="container-premium relative z-10">
         <div ref={ref} className="max-w-7xl mx-auto">
 
           {/* Monumental Header */}
-          <div className="text-center mb-24 lg:mb-32">
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-8 transition-all duration-700 ${isRevealed ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="text-center mb-16 lg:mb-20">
+            <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 transition-all duration-700 ${isRevealed ? 'opacity-100' : 'opacity-0'}`}>
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
               <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-tertiary)' }}>Available for New Projects</span>
             </div>
 
-            <h2 className={`text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               LET'S START A <br />
               <span className="gradient-text italic">CONVERSATION</span>
             </h2>
@@ -90,26 +87,26 @@ export function CTA() {
             <div className={`space-y-6 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
               <div className="grid sm:grid-cols-2 gap-6">
                 {/* Email Card */}
-                <a href={`mailto:${ctaConfig.email}`} className="group p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300">
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <AtSign className="w-6 h-6 text-indigo-400" />
+                <a href={`mailto:${ctaConfig.email}`} className="group p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <AtSign className="w-5 h-5 text-indigo-400" />
                   </div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2">Email Me</h3>
-                  <p className="text-lg font-bold truncate group-hover:text-indigo-400 transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.email}</p>
+                  <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Email Me</h3>
+                  <p className="text-base font-bold truncate group-hover:text-indigo-400 transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.email}</p>
                 </a>
 
                 {/* Location Card */}
-                <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300">
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
-                    <Globe className="w-6 h-6 text-cyan-400" />
+                <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-4">
+                    <Globe className="w-5 h-5 text-cyan-400" />
                   </div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-muted mb-2">Location</h3>
-                  <p className="text-lg font-bold transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.location}</p>
+                  <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Location</h3>
+                  <p className="text-base font-bold transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.location}</p>
                 </div>
               </div>
 
               {/* Status / Follow Large Card */}
-              <div className="p-10 rounded-[2.5rem] border border-white/5 bg-gradient-to-br from-indigo-500/[0.03] to-cyan-500/[0.03] backdrop-blur-3xl overflow-hidden relative">
+              <div className="p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-indigo-500/[0.03] to-cyan-500/[0.03] backdrop-blur-3xl overflow-hidden relative">
                 <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center justify-between">
                   <div>
                     <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Social Reach</h3>
@@ -146,7 +143,7 @@ export function CTA() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full h-16 px-8 rounded-2xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium"
+                      className="w-full h-14 px-6 rounded-xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium"
                       style={{ color: 'var(--text-primary)' }}
                     />
                   </div>
@@ -157,7 +154,7 @@ export function CTA() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full h-16 px-8 rounded-2xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium"
+                      className="w-full h-14 px-6 rounded-xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium"
                       style={{ color: 'var(--text-primary)' }}
                     />
                   </div>
@@ -169,7 +166,7 @@ export function CTA() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium resize-none"
+                    className="w-full p-6 rounded-2xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium resize-none"
                     style={{ color: 'var(--text-primary)' }}
                   />
                 </div>
@@ -177,7 +174,7 @@ export function CTA() {
                 <MagneticButton
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full h-20 rounded-[2rem] font-black uppercase tracking-[0.2em] text-xs transition-all group overflow-hidden relative ${isSubmitting ? 'bg-neutral-800 cursor-not-allowed text-white/50' : 'bg-white text-black hover:bg-neutral-200'
+                  className={`w-full h-16 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all group overflow-hidden relative ${isSubmitting ? 'bg-neutral-800 cursor-not-allowed text-white/50' : 'bg-white text-black hover:bg-neutral-200'
                     }`}
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3">

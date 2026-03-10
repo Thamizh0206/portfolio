@@ -1,52 +1,38 @@
 import { useState } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { MagneticButton } from '@/components/MagneticButton';
-import { Github, Linkedin, ArrowUpRight, MessageSquare, Globe, AtSign } from 'lucide-react';
+import { Github, Linkedin, Send, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { ctaConfig } from '@/config';
 
 export function CTA() {
-  const { ref, isRevealed } = useReveal({ threshold: 0.15 });
+  const { ref, isRevealed } = useReveal({ threshold: 0.1 });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    // Web3Forms Access Key
     const accessKey = "23d56c33-e542-455b-8e54-51ef542f1a51";
-
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
           access_key: accessKey,
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: `New Portfolio Message from ${formData.name}`,
+          ...formData,
+          subject: `Inquiry from ${formData.name}`,
         }),
       });
-
       const result = await response.json();
       if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error("Submission error:", error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -54,158 +40,160 @@ export function CTA() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-20 sm:py-28" style={{ background: 'var(--bg-primary)' }}>
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] opacity-10 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 70%)', filter: 'blur(120px)' }}
-      />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] opacity-10 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #22d3ee 0%, transparent 70%)', filter: 'blur(100px)' }}
-      />
-
-
+    <section id="contact" className="relative py-32 lg:py-40 bg-[#050505] overflow-hidden" ref={ref}>
+      {/* Background Architectural Text - Integrated into the design */}
+      <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 pointer-events-none select-none overflow-hidden opacity-[0.02]">
+        <div className="flex whitespace-nowrap animate-marquee-subtle">
+          {[...Array(4)].map((_, i) => (
+            <span key={i} className="text-[20vw] font-black tracking-tighter text-stroke-white uppercase mr-20">
+              Interaction • Innovation • Intelligence •
+            </span>
+          ))}
+        </div>
+      </div>
 
       <div className="container-premium relative z-10">
-        <div ref={ref} className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto">
 
-          {/* Monumental Header */}
-          <div className="text-center mb-16 lg:mb-20">
-            <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6 transition-all duration-700 ${isRevealed ? 'opacity-100' : 'opacity-0'}`}>
-              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-tertiary)' }}>Available for New Projects</span>
+          {/* Section Heading - Scaled Down */}
+          <div className="mb-16 lg:mb-24">
+            <div className={`transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-px bg-indigo-500/50" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-indigo-400">Collaboration Port</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tighter">
+                LET'S START A <br />
+                <span className="gradient-text italic">CONVERSATION</span>
+              </h2>
             </div>
-
-            <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight lg:leading-[1.1] transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              LET'S START A <br />
-              <span className="gradient-text italic">CONVERSATION</span>
-            </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-stretch">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
-            {/* Left: Info Bento Grid */}
-            <div className={`space-y-4 sm:space-y-6 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
-              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                {/* Email Card */}
-                <a href={`mailto:${ctaConfig.email}`} className="group p-5 sm:p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <AtSign className="w-5 h-5 text-indigo-400" />
-                  </div>
-                  <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Email Me</h3>
-                  <p className="text-sm sm:text-base font-bold truncate group-hover:text-indigo-400 transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.email}</p>
-                </a>
+            {/* Left Column: Contact Meta - More Compact */}
+            <div className="lg:col-span-5 space-y-12 lg:space-y-16">
+              <div className={`transition-all duration-1000 delay-200 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8">
+                  Have an idea? <br />
+                  <span className="text-white/30 italic">Just say hello.</span>
+                </h3>
 
-                {/* Location Card */}
-                <div className="p-5 sm:p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-4">
-                    <Globe className="w-5 h-5 text-cyan-400" />
+                <div className="space-y-8">
+                  <div className="group flex items-center gap-5 transition-transform hover:translate-x-1">
+                    <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/20 group-hover:border-indigo-500 transition-all">
+                      <Mail className="w-3.5 h-3.5 text-indigo-400" />
+                    </div>
+                    <div>
+                      <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest mb-0.5">Official Inquiry</p>
+                      <a href={`mailto:${ctaConfig.email}`} className="text-base font-bold text-white hover:text-indigo-400 transition-colors">
+                        {ctaConfig.email}
+                      </a>
+                    </div>
                   </div>
-                  <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Location</h3>
-                  <p className="text-sm sm:text-base font-bold transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.location}</p>
+
+                  <div className="group flex items-center gap-5 transition-transform hover:translate-x-1">
+                    <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                      <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest mb-0.5">Base Location</p>
+                      <p className="text-base font-bold text-white">{ctaConfig.location}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Status / Follow Large Card */}
-              <div className="p-6 sm:p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-indigo-500/[0.03] to-cyan-500/[0.03] backdrop-blur-3xl overflow-hidden relative">
-                <div className="relative z-10 flex flex-col md:flex-row gap-6 sm:gap-8 items-center justify-between text-center md:text-left">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--text-primary)' }}>Social Reach</h3>
-                    <p className="text-muted text-xs sm:text-sm max-w-xs mb-6 sm:mb-8">Follow my journey and latest AI explorations on social platforms.</p>
-                    <div className="flex justify-center md:justify-start gap-4">
-                      <MagneticButton href="https://linkedin.com/in/thamizhvendhan-r-a4a550375/" target="_blank" className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
-                        <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
-                      </MagneticButton>
-                      <MagneticButton href="https://github.com/Thamizh0206" target="_blank" className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
-                        <Github className="w-5 h-5 sm:w-6 sm:h-6" />
-                      </MagneticButton>
-                    </div>
-                  </div>
-                  <div className="relative w-32 h-32 sm:w-40 sm:h-40">
-                    <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full" />
-                    <div className="relative z-20 w-full h-full rounded-full border-2 border-dashed border-indigo-500/30 animate-[spin_20s_linear_infinite] p-4">
-                      <div className="w-full h-full rounded-full border-2 border-indigo-500/50 flex items-center justify-center">
-                        <MessageSquare className="w-8 h-8 sm:w-12 sm:h-12 text-indigo-400" />
-                      </div>
-                    </div>
-                  </div>
+              {/* Socials - More Minimal */}
+              <div className={`pt-8 border-t border-white/5 transition-all duration-1000 delay-400 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="flex gap-3">
+                  <MagneticButton href="https://linkedin.com/in/thamizhvendhan-r-a4a550375/" target="_blank" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white transition-all text-white hover:text-black">
+                    <Linkedin className="w-4 h-4" />
+                  </MagneticButton>
+                  <MagneticButton href="https://github.com/Thamizh0206" target="_blank" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white transition-all text-white hover:text-black">
+                    <Github className="w-4 h-4" />
+                  </MagneticButton>
                 </div>
               </div>
             </div>
 
-            {/* Right: Premium Form */}
-            <div className={`transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{ transitionDelay: '0.2s' }}>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="group space-y-2">
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full h-14 px-6 rounded-xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium"
-                      style={{ color: 'var(--text-primary)' }}
-                    />
-                  </div>
-                  <div className="group space-y-2">
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full h-14 px-6 rounded-xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium"
-                      style={{ color: 'var(--text-primary)' }}
-                    />
-                  </div>
-                </div>
-                <div className="group space-y-2">
-                  <textarea
-                    rows={6}
-                    placeholder="Tell me about your vision..."
+            {/* Right Column: Interactive Form - Refined Sizes */}
+            <div className={`lg:col-span-7 transition-all duration-1000 delay-300 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <form onSubmit={handleSubmit} className="space-y-10 lg:space-y-12">
+                <div className="relative group">
+                  <input
+                    type="text"
                     required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-indigo-500 transition-all text-base text-white peer placeholder-transparent"
+                    id="cta-name"
+                    placeholder=" "
+                  />
+                  <label htmlFor="cta-name" className="absolute left-0 top-4 text-sm text-white/30 transition-all peer-focus:top-0 peer-focus:text-[9px] peer-focus:text-indigo-400 peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-[9px] uppercase tracking-widest">
+                    Full Name
+                  </label>
+                </div>
+
+                <div className="relative group">
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-indigo-500 transition-all text-base text-white peer placeholder-transparent"
+                    id="cta-email"
+                    placeholder=" "
+                  />
+                  <label htmlFor="cta-email" className="absolute left-0 top-4 text-sm text-white/30 transition-all peer-focus:top-0 peer-focus:text-[9px] peer-focus:text-indigo-400 peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-[9px] uppercase tracking-widest">
+                    Email Address
+                  </label>
+                </div>
+
+                <div className="relative group">
+                  <textarea
+                    required
+                    rows={1}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full p-6 rounded-2xl bg-white/[0.03] border border-white/10 outline-none focus:border-indigo-500/50 focus:bg-white/[0.05] transition-all text-sm font-medium resize-none"
-                    style={{ color: 'var(--text-primary)' }}
+                    className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-indigo-500 transition-all text-base text-white peer placeholder-transparent resize-none min-h-[80px]"
+                    id="cta-message"
+                    placeholder=" "
                   />
+                  <label htmlFor="cta-message" className="absolute left-0 top-4 text-sm text-white/30 transition-all peer-focus:top-0 peer-focus:text-[9px] peer-focus:text-indigo-400 peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-[9px] uppercase tracking-widest">
+                    Message Details
+                  </label>
                 </div>
 
-                <MagneticButton
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full h-16 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all group overflow-hidden relative ${isSubmitting ? 'bg-neutral-800 cursor-not-allowed text-white/50' : 'bg-white text-black hover:bg-neutral-200'
-                    }`}
-                >
-                  <span className="relative z-10 flex items-center justify-center gap-3">
-                    {isSubmitting ? 'Submitting vision...' : 'Send Proposal'}
-                    {!isSubmitting && <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />}
-                  </span>
-                  {!isSubmitting && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-cyan-500/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                  )}
-                </MagneticButton>
+                <div className="pt-6">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="group flex items-center gap-5 text-white disabled:opacity-50"
+                  >
+                    <div className="relative w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:border-indigo-400 transition-all duration-500 bg-white/0 group-hover:bg-indigo-500/10 active:scale-95">
+                      <Send className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-indigo-500/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <div className="text-left">
+                      <span className="block text-xl lg:text-2xl font-black uppercase tracking-tight">
+                        {isSubmitting ? 'Syncing...' : 'Send Message'}
+                      </span>
+                      <span className="block text-[8px] text-white/30 uppercase tracking-[0.2em] font-bold">
+                        Secure Transmission
+                      </span>
+                    </div>
+                  </button>
+                </div>
 
-                {/* Status Notifications */}
-                {submitStatus === 'success' && (
-                  <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-bold text-center animate-in fade-in slide-in-from-top-2">
-                    ✓ Message received! I'll get back to you soon.
-                  </div>
-                )}
-                {submitStatus === 'error' && (
-                  <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-bold text-center animate-in fade-in slide-in-from-top-2">
-                    ✕ Submission failed. Please try again or email me directly.
+                {submitStatus !== 'idle' && (
+                  <div className={`mt-6 p-4 border rounded-xl text-[10px] font-bold uppercase tracking-widest text-center transition-all ${submitStatus === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-red-500/10 border-red-500/20 text-red-400'
+                    }`}>
+                    {submitStatus === 'success' ? 'Transmission Successful' : 'Transmission Error'}
                   </div>
                 )}
               </form>
-
-              <div className="mt-8 flex items-center justify-center gap-6 opacity-30">
-                <div className="h-px flex-1 bg-white" />
-                <span className="text-[10px] uppercase font-bold tracking-widest">Global Reach</span>
-                <div className="h-px flex-1 bg-white" />
-              </div>
             </div>
-
           </div>
         </div>
       </div>

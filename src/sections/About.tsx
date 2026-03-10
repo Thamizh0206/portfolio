@@ -27,19 +27,19 @@ export function About() {
               </div>
 
               <h2 className={`text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight lg:leading-[0.95] mb-8 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                I ARCHITECT <br />
+                I ARCHITECT <span className="hidden sm:inline"><br /></span>
                 <span className="gradient-text italic">NEXT-GEN INTELLIGENCE</span>
               </h2>
 
-              <p className={`text-xl sm:text-2xl leading-relaxed max-w-3xl transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              <p className={`text-lg sm:text-2xl leading-relaxed max-w-3xl transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ color: 'var(--text-tertiary)', transitionDelay: '0.2s' }}>
                 {aboutConfig.description}
               </p>
             </div>
 
             {/* Portrait (Right) */}
-            <div className={`lg:col-span-5 relative transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-32'}`} style={{ transitionDelay: '0.3s' }}>
-              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 group bg-neutral-900">
+            <div className={`lg:col-span-5 relative transition-all duration-1000 mt-8 lg:mt-0 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-32'}`} style={{ transitionDelay: '0.3s' }}>
+              <div className="relative aspect-[4/5] sm:aspect-[3/4] rounded-3xl sm:rounded-[3rem] overflow-hidden border border-white/10 group bg-neutral-900">
                 {/* Background Accents */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/50 to-transparent z-10 opacity-80" />
                 <div className="absolute -inset-20 bg-indigo-500/20 blur-[100px] opacity-0 group-hover:opacity-50 transition-opacity duration-1000" />

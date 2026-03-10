@@ -138,7 +138,7 @@ function ProjectItem({ project, index }: { project: any, index: number }) {
 
         {/* Floating Number */}
         <div
-          className="absolute bottom-8 right-8 z-30 opacity-20 text-[120px] font-black leading-none italic pointer-events-none transition-all duration-700 group-hover:opacity-40"
+          className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 z-30 opacity-10 sm:opacity-20 text-[60px] sm:text-[120px] font-black leading-none italic pointer-events-none transition-all duration-700 group-hover:opacity-40"
           style={{ color: 'var(--text-primary)', transform: `translateY(${parallaxAmount * -0.5}px)` }}
         >
           {index + 1}
@@ -146,17 +146,17 @@ function ProjectItem({ project, index }: { project: any, index: number }) {
       </div>
 
       {/* Project Info */}
-      <div className="w-full lg:w-[40%] space-y-8">
+      <div className="w-full lg:w-[40%] space-y-6 sm:space-y-8">
         <div className="flex items-center gap-4">
-          <div className="h-0.5 w-12 bg-indigo-500" />
-          <span className="text-sm font-mono opacity-60 uppercase tracking-widest">{project.category}</span>
+          <div className="h-0.5 w-8 sm:w-12 bg-indigo-500" />
+          <span className="text-[10px] sm:text-sm font-mono opacity-60 uppercase tracking-widest">{project.category}</span>
         </div>
 
-        <h3 className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1]" style={{ color: 'var(--text-primary)' }}>
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.2] lg:leading-[1.1]" style={{ color: 'var(--text-primary)' }}>
           {project.title}
         </h3>
 
-        <p className="text-xl leading-relaxed font-light" style={{ color: 'var(--text-tertiary)' }}>
+        <p className="text-lg sm:text-xl leading-relaxed font-light" style={{ color: 'var(--text-tertiary)' }}>
           {project.description}
         </p>
 

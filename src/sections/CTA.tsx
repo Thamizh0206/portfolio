@@ -84,47 +84,47 @@ export function CTA() {
           <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-stretch">
 
             {/* Left: Info Bento Grid */}
-            <div className={`space-y-6 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
-              <div className="grid sm:grid-cols-2 gap-6">
+            <div className={`space-y-4 sm:space-y-6 transition-all duration-1000 ${isRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 {/* Email Card */}
-                <a href={`mailto:${ctaConfig.email}`} className="group p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300">
+                <a href={`mailto:${ctaConfig.email}`} className="group p-5 sm:p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300">
                   <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <AtSign className="w-5 h-5 text-indigo-400" />
                   </div>
                   <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Email Me</h3>
-                  <p className="text-base font-bold truncate group-hover:text-indigo-400 transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.email}</p>
+                  <p className="text-sm sm:text-base font-bold truncate group-hover:text-indigo-400 transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.email}</p>
                 </a>
 
                 {/* Location Card */}
-                <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300">
+                <div className="p-5 sm:p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300">
                   <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-4">
                     <Globe className="w-5 h-5 text-cyan-400" />
                   </div>
                   <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1">Location</h3>
-                  <p className="text-base font-bold transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.location}</p>
+                  <p className="text-sm sm:text-base font-bold transition-colors" style={{ color: 'var(--text-primary)' }}>{ctaConfig.location}</p>
                 </div>
               </div>
 
               {/* Status / Follow Large Card */}
-              <div className="p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-indigo-500/[0.03] to-cyan-500/[0.03] backdrop-blur-3xl overflow-hidden relative">
-                <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center justify-between">
+              <div className="p-6 sm:p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-indigo-500/[0.03] to-cyan-500/[0.03] backdrop-blur-3xl overflow-hidden relative">
+                <div className="relative z-10 flex flex-col md:flex-row gap-6 sm:gap-8 items-center justify-between text-center md:text-left">
                   <div>
-                    <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Social Reach</h3>
-                    <p className="text-muted text-sm max-w-xs mb-8">Follow my journey and latest AI explorations on social platforms.</p>
-                    <div className="flex gap-4">
-                      <MagneticButton href="https://linkedin.com/in/thamizhvendhan-r-a4a550375/" target="_blank" className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
-                        <Linkedin className="w-6 h-6" />
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--text-primary)' }}>Social Reach</h3>
+                    <p className="text-muted text-xs sm:text-sm max-w-xs mb-6 sm:mb-8">Follow my journey and latest AI explorations on social platforms.</p>
+                    <div className="flex justify-center md:justify-start gap-4">
+                      <MagneticButton href="https://linkedin.com/in/thamizhvendhan-r-a4a550375/" target="_blank" className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
+                        <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                       </MagneticButton>
-                      <MagneticButton href="https://github.com/Thamizh0206" target="_blank" className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
-                        <Github className="w-6 h-6" />
+                      <MagneticButton href="https://github.com/Thamizh0206" target="_blank" className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
+                        <Github className="w-5 h-5 sm:w-6 sm:h-6" />
                       </MagneticButton>
                     </div>
                   </div>
-                  <div className="relative w-40 h-40">
+                  <div className="relative w-32 h-32 sm:w-40 sm:h-40">
                     <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full" />
                     <div className="relative z-20 w-full h-full rounded-full border-2 border-dashed border-indigo-500/30 animate-[spin_20s_linear_infinite] p-4">
                       <div className="w-full h-full rounded-full border-2 border-indigo-500/50 flex items-center justify-center">
-                        <MessageSquare className="w-12 h-12 text-indigo-400" />
+                        <MessageSquare className="w-8 h-8 sm:w-12 sm:h-12 text-indigo-400" />
                       </div>
                     </div>
                   </div>

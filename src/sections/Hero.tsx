@@ -125,18 +125,18 @@ export function Hero() {
 
           {/* Role Display */}
           <div
-            className={`flex flex-col items-center gap-6 mb-12 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`flex flex-col items-center gap-4 sm:gap-6 mb-10 sm:mb-12 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             style={{ transitionDelay: '0.4s' }}
           >
-            <span className="text-3xl sm:text-4xl lg:text-5xl font-bold italic gradient-text" style={{ color: 'var(--text-secondary)' }}>
+            <span className="text-2xl sm:text-4xl lg:text-5xl font-bold italic gradient-text px-4" style={{ color: 'var(--text-secondary)' }}>
               {heroConfig.roles[0]}
             </span>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm sm:text-base font-bold uppercase tracking-[0.4em] opacity-40">
+            <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[10px] sm:text-sm font-bold uppercase tracking-[0.2rem] sm:tracking-[0.4em] opacity-40 px-4">
               {heroConfig.roles.slice(1).map((role, idx) => (
-                <span key={role} className="flex items-center gap-6">
+                <span key={role} className="flex items-center gap-4 sm:gap-6 whitespace-nowrap">
                   {role}
-                  {idx < heroConfig.roles.length - 2 && <span className="w-2 h-2 rounded-full bg-indigo-500/50" />}
+                  {idx < heroConfig.roles.length - 2 && <span className="w-1.5 h-1.5 rounded-full bg-indigo-500/50" />}
                 </span>
               ))}
             </div>
@@ -144,22 +144,22 @@ export function Hero() {
 
           {/* CTA Buttons - Centered */}
           <div
-            className={`flex flex-wrap items-center justify-center gap-6 mb-20 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 mb-16 sm:mb-20 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             style={{ transitionDelay: '0.6s' }}
           >
             <MagneticButton
               href="#projects"
-              className="px-12 py-6 rounded-full bg-indigo-500 text-white font-bold flex items-center gap-3 hover:bg-indigo-600 transition-all group scale-110 shadow-[0_0_30px_rgba(99,102,241,0.3)]"
+              className="w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 rounded-full bg-indigo-500 text-white font-bold flex items-center justify-center gap-3 hover:bg-indigo-600 transition-all group sm:scale-110 shadow-[0_0_30px_rgba(99,102,241,0.3)]"
             >
               <span>Explore Portfolio</span>
               <ArrowDownRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </MagneticButton>
 
-            <div className="flex bg-white/5 border border-white/10 rounded-full p-2 backdrop-blur-md">
+            <div className="flex w-full sm:w-auto bg-white/5 border border-white/10 rounded-2xl sm:rounded-full p-1 sm:p-2 backdrop-blur-md">
               <button
                 onClick={() => setShowResume(true)}
-                className="flex items-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all hover:bg-white/10"
+                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 sm:px-8 py-3 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all hover:bg-white/10"
                 style={{ color: 'var(--text-primary)' }}
               >
                 <Eye className="w-4 h-4 opacity-70" />
@@ -168,7 +168,7 @@ export function Hero() {
               <div className="w-px h-8 bg-white/10 self-center mx-1" />
               <a
                 href={heroConfig.resume.download}
-                className="flex items-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all hover:bg-white/10 text-indigo-400"
+                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 sm:px-8 py-3 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all hover:bg-white/10 text-indigo-400"
               >
                 <Download className="w-4 h-4" />
                 Download

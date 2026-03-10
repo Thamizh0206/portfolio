@@ -3,6 +3,14 @@ module.exports = {
   darkMode: ["class"],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      'xs': '375px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -107,11 +115,11 @@ module.exports = {
           to: { transform: "scale(1) translate3d(0, 0, 0)" },
         },
         "hero-reveal": {
-          "0%": { 
+          "0%": {
             opacity: "0",
             transform: "scale(1.1)",
           },
-          "100%": { 
+          "100%": {
             opacity: "1",
             transform: "scale(1)",
           },

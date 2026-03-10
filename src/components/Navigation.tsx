@@ -33,9 +33,10 @@ export function Navigation() {
         <div className="container-premium">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a href="#" className="text-lg font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            <a href="#" className="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap" style={{ color: 'var(--text-primary)' }}>
               <span className="gradient-text">{navigationConfig.logo.charAt(0)}</span>
-              {navigationConfig.logo.substring(1)}
+              <span className="hidden xs:inline">{navigationConfig.logo.substring(1)}</span>
+              <span className="xs:hidden">{navigationConfig.logo.split(' ')[0].substring(1)}</span>
             </a>
 
             {/* Desktop Navigation */}

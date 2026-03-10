@@ -22,11 +22,11 @@ export function Education() {
                 <span className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50">Curriculum Foundation</span>
               </div>
-              <h2 className="text-5xl sm:text-6xl font-black tracking-tighter leading-tight lg:leading-[0.9] text-white mb-8">
+              <h2 className="text-4xl sm:text-6xl font-black tracking-tighter leading-tight lg:leading-[0.9] text-white mb-6 sm:mb-8">
                 Intellectual <br />
                 <span className="gradient-text italic">Continuum</span>
               </h2>
-              <p className="text-xl text-muted leading-relaxed max-w-sm mb-12">
+              <p className="text-lg sm:text-xl text-muted leading-relaxed max-w-sm mb-10 sm:mb-12">
                 A systematic progression through academic excellence and specialized technical validation.
               </p>
 
@@ -60,9 +60,9 @@ export function Education() {
                   className={`group relative p-1 transition-all duration-1000 ${eduRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
                   style={{ transitionDelay: `${idx * 0.2}s` }}
                 >
-                  <div className="relative p-10 sm:p-14 rounded-[3rem] bg-[#0A0A0B]/80 border border-white/5 backdrop-blur-3xl overflow-hidden hover:border-indigo-500/20 transition-all duration-500">
-                    <div className="absolute top-0 right-0 p-12 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                      <School className="w-48 h-48 -mr-12 -mt-12 rotate-12" />
+                  <div className="relative p-8 sm:p-14 rounded-3xl sm:rounded-[3rem] bg-[#0A0A0B]/80 border border-white/5 backdrop-blur-3xl overflow-hidden hover:border-indigo-500/20 transition-all duration-500">
+                    <div className="absolute top-0 right-0 p-8 sm:p-12 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                      <School className="w-32 h-32 sm:w-48 sm:h-48 -mr-8 -mt-8 sm:-mr-12 sm:-mt-12 rotate-12" />
                     </div>
 
                     <div className="relative z-10">
@@ -130,7 +130,7 @@ export function Education() {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-transparent to-cyan-500/20 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
 
                 {/* Main Card Body */}
-                <div className="relative h-full p-10 rounded-[2.5rem] bg-[#0A0A0C]/90 border border-white/5 backdrop-blur-3xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
+                <div className="relative h-full p-8 sm:p-10 rounded-3xl sm:rounded-[2.5rem] bg-[#0A0A0C]/90 border border-white/5 backdrop-blur-3xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
 
                   {/* Glossy Sheen Overlay */}
                   <div className="absolute -inset-full bg-gradient-to-tr from-transparent via-white/5 to-transparent rotate-45 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
